@@ -1,4 +1,4 @@
-package com.kostyanetskaya.epamjavastudy.lesson1;
+package com.kostyanetskaya.epamjavastudy.lesson0;
 
 import java.util.Scanner;
 

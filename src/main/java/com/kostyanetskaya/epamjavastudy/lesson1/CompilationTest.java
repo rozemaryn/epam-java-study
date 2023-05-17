@@ -1,4 +1,4 @@
-package com.kostyanetskaya.epamjavastudy.lesson2;
+package com.kostyanetskaya.epamjavastudy.lesson1;
 
 public class CompilationTest {
     public static void main(String[] args) {
