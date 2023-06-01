@@ -43,3 +43,26 @@ public class Average {
 
     }
 }
+
+class AnotherSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        Scanner inputScanner = new Scanner(input);
+        int sum = 0;
+
+        int value;
+        int counter = 0;
+
+        while ((value = inputScanner.nextInt()) != 0) {
+            sum += value;
+            counter++;
+        }
+        sc.close();
+        inputScanner.close();
+
+        int average = sum / counter;
+        System.out.println(average);
+    }
+}
