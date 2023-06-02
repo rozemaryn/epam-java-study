@@ -10,7 +10,6 @@ public class MaxMethod {
      }
      return max;
     }
-
     public static void main(String[] args) {
         int[] vals = new int[]{ -2, 0, 10, 5 };
         int result = MaxMethod.max(vals);
