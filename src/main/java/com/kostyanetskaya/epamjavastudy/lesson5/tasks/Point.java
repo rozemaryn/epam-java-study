@@ -1,8 +1,8 @@
-package com.kostyanetskaya.epamjavastudy.lesson5.tasks.Intersection;
+package com.kostyanetskaya.epamjavastudy.lesson5.tasks;
 
 public class Point {
-    private final int x;
-    private final int y;
+    final int x;
+    final int y;
 
     public Point(int x, int y) {
         this.x = x;

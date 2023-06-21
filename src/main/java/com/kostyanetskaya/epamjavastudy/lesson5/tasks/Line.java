@@ -1,4 +1,4 @@
-package com.kostyanetskaya.epamjavastudy.lesson5.tasks.Intersection;
+package com.kostyanetskaya.epamjavastudy.lesson5.tasks;
 
 /*
 Написать метод, который будет вовзращать точку пересечения двух прямых в виде объекта Point
