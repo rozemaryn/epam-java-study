@@ -32,6 +32,13 @@ public class Triangle {
         return area;
     }
 
+    public Point centroid () {
+        int x = (this.A.x + this.B.x + this.C.x) / 3;
+        int y = (this.A.y + this.B.y + this.C.y) / 3;
+
+        return new Point(x, y);
+    }
+
     public Point getA() {
         return A;
     }
@@ -74,5 +81,10 @@ public class Triangle {
 
         double area = new Triangle(new Point(0,0), new Point(3, 0), new Point(0, 4)).area();
         System.out.println(area);
+
+        Point centroid = new Triangle(new Point(0,0), new Point(3, 0), new Point(0, 3)).centroid();
+
+        System.out.println(centroid.getX());
+        System.out.println(centroid.getY());
     }
 }
