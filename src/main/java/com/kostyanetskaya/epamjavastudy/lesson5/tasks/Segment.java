@@ -15,7 +15,7 @@ public class Segment {
     }
 
     public double length () {
-        double length = sqrt(pow((this.end.getX() - this.beginning.getX()), 2) + pow((this.end.getY() - this.beginning.getY()), 2));
+        double length = sqrt(pow((this.end.x - this.beginning.x), 2) + pow((this.end.y - this.beginning.y), 2));
         return length;
     }
 
@@ -25,15 +25,15 @@ public class Segment {
     }
 
     public Point intersection(Segment another) {
-        int x1 = this.beginning.getX();
-        int y1 = this.beginning.getY();
-        int x2 = this.end.getX();
-        int y2 = this.end.getY();
+        int x1 = this.beginning.x;
+        int y1 = this.beginning.y;
+        int x2 = this.end.x;
+        int y2 = this.end.y;
 
-        int x3 = another.beginning.getX();
-        int y3 = another.beginning.getY();
-        int x4 = another.end.getX();
-        int y4 = another.end.getY();
+        int x3 = another.beginning.x;
+        int y3 = another.beginning.y;
+        int x4 = another.end.x;
+        int y4 = another.end.y;
 
         int divider = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
 
@@ -46,7 +46,8 @@ public class Segment {
         else {return null;}
     }
     public static void main(String[] args) {
-        Segment notSegment = new Segment(new Point(1,1), new Point(1,1));
+        //падаем по ошибке, вырожденный отрезок
+        // Segment notSegment = new Segment(new Point(1,1), new Point(1,1));
 
         double length = new Segment(new Point(0, 0), new Point(3, 4)).length();
         System.out.println(length);
