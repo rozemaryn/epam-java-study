@@ -7,7 +7,7 @@ public class Segment {
     private final Point end;
 
     public Segment (Point point1, Point point2) {
-        if (point1.equals(point2)) {
+        if (point1.equals(point2) || point1 == null || point2 == null) {
             throw new IllegalArgumentException("The segment is degenerate");
         }
         this.beginning = point1;

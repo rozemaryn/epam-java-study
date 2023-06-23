@@ -25,8 +25,8 @@ public class Triangle {
     }
 
     public double area () {
-        double area = 0;
-        double p = (double) (a + b + c)/2;
+        double area;
+        double p = (a + b + c)/2;
         area = sqrt(p * (p - a)*(p - b)*(p - c));
 
         return area;
