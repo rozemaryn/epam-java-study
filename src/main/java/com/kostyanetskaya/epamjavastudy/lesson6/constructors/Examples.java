@@ -1,4 +1,4 @@
-package com.kostyanetskaya.epamjavastudy.lesson6.prima.constructors;
+package com.kostyanetskaya.epamjavastudy.lesson6.constructors;
 
 public class Examples {
 }

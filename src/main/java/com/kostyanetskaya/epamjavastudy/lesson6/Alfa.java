@@ -1,4 +1,4 @@
-package com.kostyanetskaya.epamjavastudy.lesson6.prima;
+package com.kostyanetskaya.epamjavastudy.lesson6;
 
 public class Alfa {
     public void action() {

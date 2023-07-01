@@ -1,6 +1,6 @@
-package com.kostyanetskaya.epamjavastudy.lesson6.prima.secunda;
+package com.kostyanetskaya.epamjavastudy.lesson6.secunda;
 
-import com.kostyanetskaya.epamjavastudy.lesson6.prima.Alfa;
+import com.kostyanetskaya.epamjavastudy.lesson6.Alfa;
 
 public class Beta extends Alfa{
     public void service () {
