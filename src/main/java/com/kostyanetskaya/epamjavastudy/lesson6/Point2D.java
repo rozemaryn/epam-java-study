@@ -15,6 +15,12 @@ public class Point2D extends Point1D {
     public double length() {
         return Math.hypot(y, getX());
     }
+
+    public void method(double value) {
+        System.out.println("double" + value);
+    }
+
+
 }
 
 class PointMain {
@@ -27,6 +33,8 @@ class PointMain {
         point2.setX(3);
         ((Point2D)point2).setY(4);
         System.out.println(point2.length());
+
+
 
     }
 }

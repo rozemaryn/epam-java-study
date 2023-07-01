@@ -14,4 +14,14 @@ public class Point1D {
     public double length () {
         return Math.abs(x);
     }
+
+    public void method(){
+        System.out.println("without");
+    }
+    public void method (int value) {
+        System.out.println("int" + value);
+    }
+    public static void method (String str){
+        System.out.println("String" + str);
+    }
 }
