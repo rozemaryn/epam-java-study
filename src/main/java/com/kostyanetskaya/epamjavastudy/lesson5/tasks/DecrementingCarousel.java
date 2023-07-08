@@ -1,7 +1,7 @@
 package com.kostyanetskaya.epamjavastudy.lesson5.tasks;
 
 public class DecrementingCarousel {
-        static boolean runCalled = false;
+        public static boolean runCalled = false;
         public int[] array;
         int counter = 0;
 
