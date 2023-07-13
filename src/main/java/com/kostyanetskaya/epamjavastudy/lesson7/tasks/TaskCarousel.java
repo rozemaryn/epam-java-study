@@ -1,80 +1,105 @@
 package com.kostyanetskaya.epamjavastudy.lesson7.tasks;
 
-public class TaskCarousel implements Task{
-    private int[] array;
-    private int counterArray;
-    private int counterExecute;
+import java.util.ArrayList;
 
-    public TaskCarousel(int length) {
-        this.array = new int[length];
+public class TaskCarousel {
+    private ArrayList<Task> tasks;
+    int capacity;
+    int executeCounter;
+
+    public TaskCarousel(int capacity) {
+        this.tasks = new ArrayList<>(capacity);
+        this.capacity = capacity;
     }
 
-    public boolean isEmpty () {
-        for (int i: array) {
-            if (i != 0)
-                return false;
-        }
-        return true;
-    }
-
-    public boolean isFull () {
-        return array[array.length - 1] != 0;
-    }
-
-//    public boolean addTask () {
-//        return true;
-//        if (isFull()) {
-//            return false;
-//        }
-//    }
-
-    @Override
-    public boolean execute() {
-        if (counterArray == 0) {
+    public boolean addTask(Task task) {
+        isEmpty();
+        if (isFull() || task.isFinished()) {
             return false;
         }
+        tasks.add(task);
         return true;
-
     }
 
-    public static void main(String[] args) {
-        TaskCarousel carousel = new TaskCarousel(4);
-
-        System.out.println(carousel.isEmpty()); //true
-        System.out.println(carousel.isFull()); //false
-        System.out.println(carousel.execute()); //false
-
-        CountDownTask task = new CountDownTask(2);
-//        System.out.println(carousel.addTask(task)); //true
-
-//        System.out.println(carousel.isEmpty()); //false
-//        System.out.println(carousel.isFull()); // false
-//
-//        System.out.println(task.getValue()); //2
-//        System.out.println(carousel.execute()); //true
-//        System.out.println(task.getValue()); //1
-//        System.out.println(carousel.execute()); //true
-//        System.out.println(task.getValue()); //0
-
-        System.out.println(carousel.execute()); //false
-        System.out.println(carousel.isEmpty()); //true
-    }
-}
-
-class Outer {
-    private String x = "Outer";
-    void doStuff() {
-        class Inner {
-
-            public void seeOuter() {
-                System.out.println("Outer x is " + x);
-            }
+    public boolean execute() {
+        if (isEmpty()) {
+            return false;
         }
-        Inner mi = new Inner();
-        mi.seeOuter();
+        if (executeCounter == tasks.size()) {
+            executeCounter = 0;
+        }
+
+        Task runningTask = tasks.get(executeCounter);
+
+        if (!runningTask.isFinished()) {
+            runningTask.execute();
+            executeCounter++;
+            return true;
+        }
+
+        if (runningTask.isFinished()) {
+            tasks.remove(runningTask);
+            executeCounter++;
+            return false;
+        }
+        return false;
     }
+
+    public boolean isFull() {
+        return tasks.size() == capacity;
+    }
+
+    public boolean containsIsFinished () {
+        for (Task t: tasks) {
+            if (t.isFinished())
+                return true;
+        }
+        return false;
+    }
+
+    public boolean isEmpty() {
+        // if (executeCounter == tasks.size()) {
+        while (containsIsFinished())
+            for (int i = 0; i < tasks.size(); i++) {
+                if (tasks.get(i).isFinished()) {
+                    tasks.remove(tasks.get(i));
+                    executeCounter--;
+                }
+            }
+
+        return tasks.isEmpty();
+    }
+
     public static void main(String[] args) {
-        Outer outer = new Outer();
-        outer.doStuff();
+        TaskCarousel carousel = new TaskCarousel(3);
+
+        CountDownTask task1 = new CountDownTask(2);
+        CountDownTask task2 = new CountDownTask(2);
+        CompleteByRequestTask task3 = new CompleteByRequestTask();
+
+        System.out.println(carousel.addTask(task1)); //true
+        System.out.println(carousel.addTask(task2)); //true
+        System.out.println(carousel.addTask(task3)); //true
+
+        System.out.println(carousel.isFull()); // true
+        System.out.println("___________________________________");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(carousel.execute()); // true
+        }
+        System.out.println("___________________________________");
+
+        System.out.println(task1.isFinished()); // true
+        System.out.println(task2.isFinished()); // true
+        System.out.println(task3.isFinished()); // false
+        System.out.println("___________________________________");
+
+        task3.complete();
+
+        System.out.println(task3.isFinished()); // false
+        System.out.println(carousel.execute()); // true
+        System.out.println(task3.isFinished()); // true
+
+        System.out.println(carousel.isEmpty()); // true
     }
 }

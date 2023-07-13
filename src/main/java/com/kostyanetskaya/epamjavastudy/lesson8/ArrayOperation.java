@@ -29,7 +29,7 @@ public class ArrayOperation {
         return new Pair(min, max);
     }
 }
-public class DemoNestedMain {
+class DemoNestedMain {
     public static void main(String[] args) {
         double[] array = new double[20];
         for (int i = 0; i < array.length; i++) {

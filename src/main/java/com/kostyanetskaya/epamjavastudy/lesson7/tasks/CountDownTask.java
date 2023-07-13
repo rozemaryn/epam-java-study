@@ -1,36 +1,31 @@
 package com.kostyanetskaya.epamjavastudy.lesson7.tasks;
+public class CountDownTask implements Task{
 
-interface Task {
-    boolean execute();
-}
+    private int value;
 
-public class CountDownTask implements Task {
-    private int startValue;
-    private int result;
-
-    CountDownTask(int i) {
-        setStartValue(i);
+    public CountDownTask(int i) {
+        setValue(i);
     }
 
     @Override
-    public boolean execute() {
-        if (startValue > 0)
-            result = startValue--;
-        // Если задача инициализирована с нулевым значением, считайте ее завершенной сразу после создания.
-        return true;
+    public void execute() {
+        if (value > 0 && !isFinished())
+            value--;
     }
 
-    public int getStartValue() {
-        return startValue;
+    @Override
+    public boolean isFinished() {
+        return getValue() == 0;
     }
 
-    public void setStartValue(int startValue) {
-        if (startValue > 0) {
-            this.startValue = startValue;
-        } else this.startValue = 0;
+    public int getValue() {
+        return value;
     }
 
-    public int getResult() {
-        return result;
+    public void setValue(int value) {
+        if (value > 0) {
+            this.value = value;
+        } else this.value = 0;
     }
+
 }
