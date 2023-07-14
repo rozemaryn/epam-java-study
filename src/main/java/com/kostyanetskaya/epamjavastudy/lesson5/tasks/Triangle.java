@@ -33,8 +33,8 @@ public class Triangle {
     }
 
     public Point centroid () {
-        int x = (this.A.x + this.B.x + this.C.x) / 3;
-        int y = (this.A.y + this.B.y + this.C.y) / 3;
+        double x = (this.A.x + this.B.x + this.C.x) / 3;
+        double y = (this.A.y + this.B.y + this.C.y) / 3;
 
         return new Point(x, y);
     }

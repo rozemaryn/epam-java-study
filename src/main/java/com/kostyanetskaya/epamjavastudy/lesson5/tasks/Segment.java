@@ -25,17 +25,17 @@ public class Segment {
     }
 
     public Point intersection(Segment another) {
-        int x1 = this.beginning.x;
-        int y1 = this.beginning.y;
-        int x2 = this.end.x;
-        int y2 = this.end.y;
+        double x1 = this.beginning.x;
+        double y1 = this.beginning.y;
+        double  x2 = this.end.x;
+        double  y2 = this.end.y;
 
-        int x3 = another.beginning.x;
-        int y3 = another.beginning.y;
-        int x4 = another.end.x;
-        int y4 = another.end.y;
+        double x3 = another.beginning.x;
+        double y3 = another.beginning.y;
+        double x4 = another.end.x;
+        double y4 = another.end.y;
 
-        int divider = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+        double divider = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
 
         double t = (double) ((x1 - x3)*(y3 - y4) - (y1 - y3)*(x3 - x4)) / divider;
         double u = (double) ((x1 - x3)*(y1 - y2) - (y1 - y3)*(x1 - x2)) / divider;
@@ -64,13 +64,5 @@ public class Segment {
 
         System.out.println(intersection.getX());
         System.out.println(intersection.getY());
-
-//        Segment first = new Segment(new Point(0, 0), new Point(4, 0));
-//        Segment second = new Segment(new Point(2, 1), new Point(1, 2));
-//        Point intersection = first.intersection(second);
-//
-//        System.out.println(intersection == null);
-
-
     }
 }

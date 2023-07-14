@@ -3,19 +3,19 @@ package com.kostyanetskaya.epamjavastudy.lesson5.tasks;
 import java.util.Objects;
 
 public class Point {
-    final int x;
-    final int y;
+    final double x;
+    final double y;
 
-    public Point(int x, int y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
