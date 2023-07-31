@@ -24,3 +24,33 @@ public class GroupDemo {
     }
 }
 
+class GroupDemo2 {
+    public static void main(String[] args) {
+        String input = "java";
+        String regex = "([a-z]?)([a-z]+)";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.matches()) {
+            System.out.println("main group" + matcher.group());
+            System.out.println("group 1: " + matcher.group(1));
+            System.out.println("group 2: " + matcher.group(2));
+        }
+        else {
+            System.out.println("nothing");
+        }
+
+        System.out.println(matcher.groupCount());
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        String str = "Lena, Sveta, Lulu, Natalia, lana";
+        Pattern p = Pattern.compile("L.*?\\b");
+        Matcher m = p.matcher(str);
+        str = m.replaceAll("XXX");
+        System.out.println(str);
+    }
+}
+
