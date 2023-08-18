@@ -14,12 +14,10 @@ public enum Direction {
     }
 
     public static Direction ofDegrees(int degrees) {
+        degrees = (degrees % 360 + 360) % 360;
 
-        for (Direction d: Direction.values()) {
-            if (d.getDegrees() == degrees || degrees == d.getDegrees() - 360 || degrees == d.getDegrees() + 360)
-                return d;
-
-            if (degrees > 360 && d.getDegrees() != 0 && degrees % d.getDegrees() == 0)
+        for (Direction d : Direction.values()) {
+            if (d.getDegrees() == degrees)
                 return d;
         }
         return null;
