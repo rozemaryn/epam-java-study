@@ -1,5 +1,11 @@
 package com.kostyanetskaya.epamjavastudy.lesson14;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.MathContext;
+import java.util.Random;
+import java.util.regex.Pattern;
+
 public class WrapperClasses {
     public static void main(String[] args) {
         // It is rarely appropriate to use this constructor. The static factory valueOf(boolean) is generally a better choice,
@@ -30,12 +36,13 @@ class Test {
 
 class IntegerAndByteDemo {
 
-    public static byte asByte (Number num){
+    public static byte asByte(Number num) {
         if (num != null) {
             return num.byteValue();
         }
         return 0;
     }
+
     public static void main(String[] args) {
 
         Integer a = 500;
@@ -85,6 +92,47 @@ class BitMethodsExmp {
 
         System.out.println("0".repeat(leadingZeros) + Integer.toBinaryString(a));
         // prints "00000000000000000000000111110100"
+
+        Float f1 = new Float(3.1f);          //line1
+        Float f2 = new Float("3.1f");        //line2
+        Float f3 = Float.valueOf("3.1f");    //line3
+        System.out.println(f1 + "" + f2 + f3);
+
+        System.out.println(f1);
+        System.out.println(f2);
+        System.out.println(f3);
+
+        Integer y = 567;
+        Integer x = y;
+        System.out.print((x == y) + " ");
+        y++;
+        System.out.print(x == y);
     }
 }
+
+class PreciseArithmetic {
+    public static void main(String[] args) {
+        float res = 0.4f - 0.3f;
+        BigDecimal big1 = new BigDecimal("0.4");
+        BigDecimal big2 = new BigDecimal("0.3");
+        BigDecimal bigRes = big1.subtract(big2);
+
+        System.out.println(res);
+        System.out.println(bigRes);
+
+        BigInteger n = new BigInteger("12345678901827363545435463");
+        System.out.println(n);
+        System.out.println(Long.MAX_VALUE);
+        BigInteger m = new BigInteger("12345678901827363545435464");
+
+        System.out.println(n.add(m));
+        System.out.println(n.multiply(m));
+
+        BigInteger rand = new BigInteger(100, new Random());
+        System.out.println(rand);
+    }
+}
+
+
+
 
