@@ -4,11 +4,8 @@ import java.util.OptionalInt;
 
 public class MaxMethod {
     public static OptionalInt max(int[] values) {
-        OptionalInt result;
-
         if (values == null || values.length == 0) {
-            result = OptionalInt.empty();
-            return result;
+            return OptionalInt.empty();
         }
 
         int max = values[0];
@@ -16,10 +13,7 @@ public class MaxMethod {
             if (values[i] > max)
                 max = values[i];
         }
-
-        result = OptionalInt.of(max);
-
-        return result;
+        return OptionalInt.of(max);
     }
     public static void main(String[] args) {
         int[] vals = new int[]{-2, 15, 10, 5};
